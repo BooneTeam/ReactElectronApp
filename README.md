@@ -110,6 +110,7 @@ Please checkout [Building windows apps from non-windows platforms](https://githu
 If you want to have native-like User Interface (OS X El Capitan and Windows 10), [react-desktop](https://github.com/gabrielbull/react-desktop) may perfect suit for you.
 
 
+
 ## License
 MIT © [C. T. Lin](https://github.com/chentsulin)
 
@@ -119,3 +120,11 @@ MIT © [C. T. Lin](https://github.com/chentsulin)
 [travis-url]: https://travis-ci.org/chentsulin/electron-react-boilerplate
 [david_img]: https://img.shields.io/david/chentsulin/electron-react-boilerplate.svg
 [david_site]: https://david-dm.org/chentsulin/electron-react-boilerplate
+
+### Gotchas with react
+
+keys need to have their own element.. check out multisemanticDropDown
+
+with semantic you need to call refresh specifically on updates for dropdown selects. check out multsemanticDropdown again
+
+A lot of semantic js stuff happens in component did mount based on classes. dont overwrite things.

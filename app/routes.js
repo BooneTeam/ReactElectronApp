@@ -1,13 +1,30 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
-import App from './containers/App';
-import HomePage from './containers/HomePage';
-import CounterPage from './containers/CounterPage';
+import ReactDom from 'react-dom';
+import { Router, Route } from 'react-router';
 
+import AppContainer from './components/AppContainer.jsx'
 
-export default (
-  <Route path="/" component={App}>
-    <IndexRoute component={HomePage} />
-    <Route path="/counter" component={CounterPage} />
-  </Route>
-);
+import NewEventUI from './components/NewEventUI.jsx'
+import NewUserUI from './components/NewUserUI.jsx'
+import Home from './components/Home.jsx'
+//import About from './components/About.jsx'
+{/*About Page Links*/
+}
+//<Route path="/about" component={About}>
+//</Route>
+
+//<Route path="/event/new" component={NewEventUI}>
+//</Route>
+ReactDom.render((
+  <Router>
+    <Route path="/" component={Home}>
+      {/*New Event UI Links*/}
+
+    </Route>
+    <Route path="event/new" component={NewEventUI}>
+    </Route>
+    <Route path="user/new" component={NewUserUI}>
+    </Route>
+
+  </Router>
+), document.getElementById('main'))

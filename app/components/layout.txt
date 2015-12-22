@@ -1,0 +1,26 @@
+Main
+  <App>
+    <TopMenu/>
+    <Content/>
+  </App>
+
+HomePage
+  <App>
+    <WelcomePage/>
+  </App>
+
+New Room
+  <App>
+    <TopMenu/> links n such
+    <Content/>
+      <NewRoomUi/>
+    </Content>
+  </App>
+
+New Event
+  <App>
+    <TopMenu/> links n such
+    <Content/>
+      <NewEventUI/>
+    </Content>
+  </App>

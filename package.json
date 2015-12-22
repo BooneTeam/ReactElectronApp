@@ -127,9 +127,13 @@
   },
   "dependencies": {
     "electron-debug": "^0.5.1",
+    "flux": "^2.1.1",
     "font-awesome": "^4.4.0",
     "history": "~1.13.0",
+    "jquery": "^2.1.4",
+    "object-assign": "^4.0.1",
     "react": "^0.14.2",
+    "react-bootstrap": "^0.28.1",
     "react-dom": "^0.14.2",
     "react-redux": "^4.0.0",
     "react-router": "^1.0.0",

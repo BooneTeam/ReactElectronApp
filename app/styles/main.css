@@ -1,0 +1,36 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,800,900);
+.sidebar {
+  top: 45px !important; }
+
+.main.container {
+  margin-top: 7em;
+  max-width: 75% !important;
+  margin-left:10%;
+  margin-right:10%;
+  width:800px;
+}
+
+.fixed-left {
+  position: fixed !important;
+  left: 0px !important; }
+
+.fixed-right {
+  position: fixed;
+  right: 0px; }
+
+.available-days .label {
+  min-width: 100px !important; }
+
+.button {
+  margin-right: 5px !important; }
+
+#cal-screen-image {
+  width: 100%;
+  border: 10px solid #D9554C;
+  border-radius: 10px 10px 10px 10px; }
+
+#home-title {
+  color: #2185D0;
+  margin-top: 1em;
+  font-size: 3em;
+  font-family: "Raleway"; }
