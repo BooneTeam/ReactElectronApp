@@ -4,10 +4,6 @@ A Desktop Scheduling App Built in Electron and React
 
 scaffolded with electron-react-boilerplate
 
-[![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Dependency Status][david_img]][david_site]
-
 ![](./erb-logo.png)
 
 > Live editing development on desktop app
