@@ -131,6 +131,7 @@
     "font-awesome": "^4.4.0",
     "history": "~1.13.0",
     "jquery": "^2.1.4",
+    "moment": "^2.10.6",
     "object-assign": "^4.0.1",
     "react": "^0.14.2",
     "react-bootstrap": "^0.28.1",

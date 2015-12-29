@@ -60,7 +60,7 @@ var App = React.createClass({
           <div className="field">
             <label>Team</label>
             <input type="text" name="username" defaultValue={this.state.user.username}
-                   onChange={this.onChange.bind(this,this.state.user)} placeholder="Team"/>
+                   onChange={this.onChange.bind(this,this.state.user)} placeholder="username"/>
           </div>
           <button className="ui button" type="button" onClick={this.addUser.bind(this, this.state.user)}>Submit</button>
         </form>

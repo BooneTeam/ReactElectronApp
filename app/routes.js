@@ -6,6 +6,7 @@ import AppContainer from './components/AppContainer.jsx'
 
 import NewEventUI from './components/NewEventUI.jsx'
 import NewUserUI from './components/NewUserUI.jsx'
+import UserScheduleUI from './components/UserScheduleUI.jsx'
 import Home from './components/Home.jsx'
 //import About from './components/About.jsx'
 {/*About Page Links*/
@@ -24,6 +25,8 @@ ReactDom.render((
     <Route path="event/new" component={NewEventUI}>
     </Route>
     <Route path="user/new" component={NewUserUI}>
+    </Route>
+    <Route path="user/:id/schedule" component={UserScheduleUI}>
     </Route>
 
   </Router>

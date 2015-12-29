@@ -8,13 +8,6 @@ import MultiSemanticDropdown from './MultiSemanticDropdown.jsx';
 import BasicDropdownMenu from './BasicDropdownMenu.jsx';
 import InvertedButtonWithDropdown  from './InvertedButtonWithDropdown.jsx';
 
-var users = [];
-
-users = users.map(function (obj, idx) {
-  console.log(obj)
-  return {name: obj}
-});
-
 var times = ['10 Minutes', '20 Minutes', '30 Minutes']
 times = times.map(function (obj, idx) {
   return {name: obj}
@@ -31,9 +24,9 @@ var rooms = [{content: "3 TV's, Projector, WhiteBoard", value: "Alamo", name: "A
   {content: "3 TV's, Phone", value: "Conf", name: "Conf"},
   {content: "WhiteBoard", value: "Barton", name: "Barton"}];
 var App = React.createClass({
-  getInitialState: function() {
+  getInitialState: function () {
     return {
-      users : [{name : 'Garrett'}]
+      users: [{name: 'Garrett'}]
     };
   },
 
@@ -59,10 +52,13 @@ var App = React.createClass({
 
   componentDidMount(){
     $.get('http://localhost:3000/users', function (result) {
-      console.log(result)
+      //put this in a model or something
+      var users = result.map(function (user) {
+        return {name: user.firstName + ' ' + user.lastName}
+      });
       if (this.isMounted()) {
         this.setState({
-          users: [{name:result[0].username}]
+          users: users
         });
       }
     }.bind(this));

@@ -49,6 +49,7 @@ export default React.createClass({
           People
         </a>
         <Link className="item" style={{color:'white'}} to={`/user/new`}>Add New User</Link>
+        <Link className="item" style={{color:'white'}} to={`/user/8B38R5Nhrf/schedule`}>My Schedule</Link>
       </div>
     )
   }

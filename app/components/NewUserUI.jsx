@@ -12,6 +12,7 @@ import SideBarNav from './SideBarNav.jsx';
 export default React.createClass({
   getDefaultProps() {
     return {
+
     };
   },
 
