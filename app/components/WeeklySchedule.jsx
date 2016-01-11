@@ -9,20 +9,21 @@ import BasicDropdownMenu from './BasicDropdownMenu.jsx';
 import InvertedButtonWithDropdown  from './InvertedButtonWithDropdown.jsx';
 import ListGroup from 'react-bootstrap/lib/ListGroup';
 import ListedEvent from './ListedEvent.jsx';
+import _ from 'lodash';
 import moment from 'moment';
 
-var App = React.createClass({
+var WeeklySchedule = React.createClass({
   getInitialState: function () {
     return {};
   },
 
-  propTypes: {
-    schedules: PropTypes.array.isRequired,
-    onAddTask: function (e) {
-      console.log(e)
-    },
-    onClear: PropTypes.func.isRequired
-  },
+  //propTypes: {
+  //  schedules: PropTypes.array.isRequired,
+  //  onAddTask: function (e) {
+  //    console.log(e)
+  //  },
+  //  onClear: PropTypes.func.isRequired
+  //},
 
   handleClick: function (i) {
 
@@ -34,8 +35,10 @@ var App = React.createClass({
     todaysDate.setHours(0);
     todaysDate.setMinutes(0);
     todaysDate.setSeconds(0);
+    var weekStartDate = moment(todaysDate).startOf('week').toISOString();
+    console.log('wtf')
+    console.log(weekStartDate)
     return {
-
       schedules: [],
       today: todaysDate.toString()
     }
@@ -47,6 +50,7 @@ var App = React.createClass({
   render()
   {
     let {schedules,today} = this.props;
+    var hours = [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
     return (
       <div className="pusher">
         <table className="ui selectable celled structured table">
@@ -63,223 +67,33 @@ var App = React.createClass({
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>1</td>
-            <td>{"Sunday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Tuesday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Wednesday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Thursday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Friday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Saturday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr className="warning">
-            <td>4</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr>
-            <td>8</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr>
-            <td>9</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr className="warning">
-            <td>10</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr>
-            <td>11</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr>
-            <td>12</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr className="warning">
-            <td>4</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr>
-            <td>8</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr>
-            <td>9</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr className="warning">
-            <td>10</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr>
-            <td>11</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
-          <tr>
-            <td>12</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-            <td>{"Monday 1 O'clock Events".substring(0, 10)}...</td>
-          </tr>
+          {hours.map(function (object, i) {
+            var week = <tr key={object + i}>
+              <td>{object}</td>
+              <td>{_.where(schedules, {day: 0, hour: object}).map(function (object, i) {
+                return <p key={object.event.test}>{object.event.test}</p>
+              })}</td>
+              <td>{_.where(schedules, {day: 1, hour: object}).map(function (object, i) {
+                return <p key={object.event.test}>{object.event.test}</p>
+              })}</td>
+              <td>{_.where(schedules, {day: 2, hour: object}).map(function (object, i) {
+                return <p>{object.event.test}</p>
+              })}</td>
+              <td>{_.where(schedules, {day: 3, hour: object}).map(function (object, i) {
+                return <p>{object.event.test}</p>
+              })}</td>
+              <td>{_.where(schedules, {day: 4, hour: object}).map(function (object, i) {
+                return <p>{object.event.test}</p>
+              })}</td>
+              <td>{_.where(schedules, {day: 5, hour: object}).map(function (object, i) {
+                return <p>{object.event.test}</p>
+              })}</td>
+              <td>{_.where(schedules, {day: 6, hour: object}).map(function (object, i) {
+                return <p>{object.event.test}</p>
+              })}</td>
+            </tr>;
+            return week;
+          })}
           </tbody>
         </table>
       </div>
@@ -288,4 +102,4 @@ var App = React.createClass({
 });
 
 
-export default App;
+export default WeeklySchedule;

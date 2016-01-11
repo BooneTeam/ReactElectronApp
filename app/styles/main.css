@@ -50,3 +50,18 @@
 .pusher{
   font-size:10px;
 }
+
+.month-day{
+  position: relative;
+  height:70px;
+}
+
+.month-date{
+  position: absolute;
+  top:0px;
+  left:0px;
+}
+
+.month-event{
+
+}

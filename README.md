@@ -24,6 +24,7 @@ npm install
 Run this two commands __simultaneously__ in different console tabs.
 
 ```bash
+nvm use 4.x or higher
 npm run hot-server
 npm run start-hot
 ```
